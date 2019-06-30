@@ -52,7 +52,7 @@ Cai Li <cli9@ncsu.edu>
 
 
 \examples{
-See the examples for "mface.sparse".
+# See the examples for "mface.sparse".
 }
 
 \keyword{~mface.sparse}
