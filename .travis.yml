@@ -1,0 +1,12 @@
+language: r
+sudo: false
+
+r:
+  - oldrel
+  - release
+  - devel
+cache: packages
+
+
+after_failure:
+  - ./travis-tool.sh dump_logs
