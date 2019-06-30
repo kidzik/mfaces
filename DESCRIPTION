@@ -1,0 +1,19 @@
+Package: mfaces
+Title: Fast Covariance Estimation for Multivariate Sparse Functional Data
+Version: 0.1-2
+Date: 2019-06-06
+Author:  Cai Li [aut,cre] and Luo Xiao [aut]
+Maintainer: Cai Li <cli9@ncsu.edu>
+Description: Fast covariance estimation for multivariate sparse functional data or longitudinal data for the paper Li et al.
+Depends:
+    R (>= 2.1.4)
+Imports:
+    splines,
+    Matrix,
+    matrixcalc,
+    mgcv,
+	face
+License: GPL-3
+LazyLoad: yes
+LazyData: true
+Repository: CRAN

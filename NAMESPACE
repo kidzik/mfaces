@@ -1,0 +1,8 @@
+S3method(predict,mface.sparse)
+export(mface.sparse)
+
+import(Matrix)
+import(splines)
+import(matrixcalc)
+import(mgcv)
+import(face)
