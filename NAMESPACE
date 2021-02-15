@@ -1,6 +1,7 @@
 S3method(predict,mface.sparse)
 export(mface.sparse)
 
+import(stats)
 import(Matrix)
 import(splines)
 import(matrixcalc)

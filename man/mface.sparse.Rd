@@ -99,8 +99,8 @@ If knots.option is "equally-spaced", then the differencing penalty in Eilers and
 \item{\dots}{\dots}
 }
 \references{
-Cai Li, Luo Xiao and Sheng Luo, Fast covariance estimation
-for multivariate sparse functional data.
+Cai Li, Luo Xiao, and Sheng Luo, 2020. Fast covariance estimation for multivariate sparse functional data. Stat, 9(1), p.e245, 
+\doi{10.1002/sta4.245}.
 
 Luo Xiao, Cai Li, William Checkley and Ciprian Crainiceanu, Fast covariance estimation
 for sparse functional data, Stat. Comput., \doi{doi:10.1007/s11222-017-9744-8}.

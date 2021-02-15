@@ -11,7 +11,7 @@ Fast Covariance Estimation for Multivariate Sparse Functional Data
 Package: \tab mfaces\cr
 Type: \tab Package\cr
 Version: \tab 0.1-2\cr
-Date: \tab 2019-06-06\cr
+Date: \tab 2021-02-14\cr
 License: \tab GPL-3
 }
 }
@@ -21,8 +21,8 @@ Cai Li and Luo Xiao
 Maintainer: Cai Li <cli9@ncsu.edu>
 }
 \references{
-Cai Li, Luo Xiao and Sheng Luo, Fast covariance estimation
-for multivariate sparse functional data.
+Cai Li, Luo Xiao, and Sheng Luo, 2020. Fast covariance estimation for multivariate sparse functional data. Stat, 9(1), p.e245, 
+\doi{10.1002/sta4.245}.
 }
 
 \keyword{ package }

@@ -7,7 +7,7 @@ Subject-specific curve prediction from a mface.sparse fit
 Predict subject-specific curves based on a fit from "mface.sparse".
 }
 \usage{
-predict.mface.sparse(object, newdata, calculate.scores = T, \dots)
+\method{predict}{mface.sparse}(object, newdata, calculate.scores = T, \dots)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -43,8 +43,8 @@ it requires at least one observed data. For the time points prediction is desire
 }
 
 \references{
-Cai Li, Luo Xiao and Sheng Luo, Fast covariance estimation
-for multivariate sparse functional data.
+Cai Li, Luo Xiao, and Sheng Luo, 2020. Fast covariance estimation for multivariate sparse functional data. Stat, 9(1), p.e245, 
+\doi{10.1002/sta4.245}.
 }
 \author{
 Cai Li <cli9@ncsu.edu>
