@@ -11,7 +11,7 @@ Fast Covariance Estimation for Multivariate Sparse Functional Data
 Package: \tab mfaces\cr
 Type: \tab Package\cr
 Version: \tab 0.1-2\cr
-Date: \tab 2021-02-14\cr
+Date: \tab 2021-02-24\cr
 License: \tab GPL-3
 }
 }

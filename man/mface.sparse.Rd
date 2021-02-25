@@ -124,23 +124,19 @@ Cai Li <cli9@ncsu.edu> and Luo Xiao <lxiao5@ncsu.edu>
 }
 
 \examples{
-\dontrun{
-require(fields)
-
+## a toy example
 ## settings
-n <- 400
-M <- 5
-SNR <- 5
+n <- 25
+sigma <- 0.1
 seed <- 118
 
 set.seed(seed)
 
 ## data generation
-if(M==5)  {
-  N1 <- sample(3:7,n,replace=TRUE)
-  N2 <- sample(3:7,n,replace=TRUE)
-  N3 <- sample(3:7,n,replace=TRUE)
-}
+N1 <- sample(3:7,n,replace=TRUE)
+N2 <- sample(3:7,n,replace=TRUE)
+N3 <- sample(3:7,n,replace=TRUE)
+
 
 subj1 <- c()
 subj2 <- c()
@@ -206,7 +202,6 @@ True_C <- Lambda[1]*c(psi11(tnew),psi21(tnew),psi31(tnew))\%x\%
   Lambda[3]*c(psi13(tnew), psi23(tnew), psi33(tnew))\%x\%
   t(c(psi13(tnew), psi23(tnew), psi33(tnew)))
 
-sigma <- sqrt(sum(Lambda)/(3*SNR))
 
 ## observed data
 y1 <- y1 + rnorm(sum(N1))*sigma
@@ -225,36 +220,14 @@ true_eigenvalues <- eigen(True_C)$values/length(tnew)
 data <- list("y1" = data.frame("subj"= subj1, "argvals" = t1, "y" = y1),
              "y2" = data.frame("subj"= subj2, "argvals" = t2, "y" = y2),
              "y3" = data.frame("subj"= subj3, "argvals" = t3, "y" = y3)) 
-fit <- mface.sparse(data, argvals.new = tnew)
+fit <- mface.sparse(data, argvals.new = tnew, knots = 5)
 
-## heat maps of correlation function
-par(mfrow=c(1,2),mar=c(5,2.5,3,5.5))
-var <- diag(True_C)
-var[var==0] = 1e-6
-diag(True_C) = var
-cor <- diag(1/sqrt(var)) \%*\% True_C \%*\% diag(1/sqrt(var))
-image.plot(cor,
-           xlab="t",
-           ylab="s",main=bquote("Truth"),
-           cex.axis=2.0,cex.lab=2.0,cex.main=2.0,legend.cex=2.0,axes=F,
-           zlim=c(-1,1))
-axis(1, at=seq(0,1,length.out = 10),labels=c(rep(c("0","0.25","0.75"),3),"1"))
-axis(2, at=seq(0,1,length.out = 10),labels=c(rep(c("0","0.25","0.75"),3),"1"))
-
-cor <- as.matrix(fit$Cor.new)
-image.plot(cor,
-           xlab="t",
-           ylab="s",main=bquote("Estimated"),
-           cex.axis=2.0,cex.lab=2.0,cex.main=2.0,legend.cex=2.0,axes=F,
-           zlim=c(-1,1))
-axis(1, at=seq(0,1,length.out = 10),labels=c(rep(c("0","0.25","0.75"),3),"1"))
-axis(2, at=seq(0,1,length.out = 10),labels=c(rep(c("0","0.25","0.75"),3),"1"))
 
 ## prediction of several subjects
-for(i in 1:3){
+for(i in 1:2){
   sel <- lapply(data, function(x){which(x$subj==i)})
   dat_i <- mapply(function(data, sel){data[sel,]}, 
-                  data = data, sel = sel, SIMPLIFY = F)
+                  data = data, sel = sel, SIMPLIFY = FALSE)
   dat_i_pred <- lapply(dat_i, function(x){
     data.frame(subj=rep(x$subj[1],nrow(x) + length(tnew)),
                argvals = c(rep(NA,nrow(x)),tnew),
@@ -266,10 +239,10 @@ for(i in 1:3){
   pred <- predict(fit, dat_i_pred)
   y_pred <- mapply(function(pred_y.pred, dat_i){
     pred_y.pred[nrow(dat_i)+1:length(tnew)]}, pred_y.pred = pred$y.pred, 
-    dat_i = dat_i, SIMPLIFY = T)
+    dat_i = dat_i, SIMPLIFY = TRUE)
 
   pre <- pred
-  par(mfrow=c(1,3),mar=c(5,5.8,3,1))
+  
   Ylim = c(-12,12)
   Xlim = c(0,1)
   Ylab = bquote(y^(1))
@@ -307,7 +280,6 @@ for(i in 1:3){
 
 }
 
-}
 }
 
 
