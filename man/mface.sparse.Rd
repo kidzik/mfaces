@@ -34,7 +34,7 @@ mface.sparse(data, newdata = NULL,
   logical. If TRUE, then Pspline smoothing of the population mean will be conducted and subtracted from the data before covariance smoothing; if FALSE, then the population mean will be just 0s.
 }
   \item{argvals.new}{
-  a vector of observation time points to evaluate mean function, covariance function, error variance and etc. .
+  a vector of observation time points to evaluate mean function, covariance function, error variance and etc. If NULL, then 100 equidistant points in the range of data time points will be used.
 }
   \item{knots}{
  the number of knots for B-spline basis functions to be used; defaults to 7.

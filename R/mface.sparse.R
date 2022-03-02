@@ -15,7 +15,17 @@ mface.sparse <- function(data, newdata = NULL, center = TRUE, argvals.new = NULL
   ####step 0: read in data
   #########################
   
+  if(!is.list(data)){
+    stop("'data' should be a list of data frames with three variables:argvals,subj and y")
+  }
   tnew <- argvals.new
+  if(is.null(tnew)){
+    if(any(unlist(lapply(data, function(x){is.null(x$argvals)})))){
+      stop("'data' should be a list of data frames with three variables:argvals,subj and y")
+    }
+    temp_t = unlist(lapply(data, function(x){range(x$argvals)}))
+    tnew <- seq(min(temp_t), max(temp_t), length=100)
+  }
   p.m = p ## this is splines degree
   p <- length(data) ## dimension of the multivariate functional data
   
@@ -298,7 +308,7 @@ mface.sparse <- function(data, newdata = NULL, center = TRUE, argvals.new = NULL
              se.pred = se.pred, scores = scores,
              G_invhalf = G_invhalf, bps.lambda = bps.lambda, 
              U = Eig$vectors[,1:npc], 
-             argvals.new = argvals.new,
+             argvals.new = tnew,
              center=center, knots=knots, knots.option = knots.option,
              p = p.m, m = m,
              lower=lower,upper=upper,search.length=search.length,
