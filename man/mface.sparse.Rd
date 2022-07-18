@@ -103,7 +103,7 @@ Cai Li, Luo Xiao, and Sheng Luo, 2020. Fast covariance estimation for multivaria
 \doi{10.1002/sta4.245}.
 
 Luo Xiao, Cai Li, William Checkley and Ciprian Crainiceanu, Fast covariance estimation
-for sparse functional data, Stat. Comput., \doi{doi:10.1007/s11222-017-9744-8}.
+for sparse functional data, Stat. Comput., \doi{10.1007/s11222-017-9744-8}.
 
 Paul Eilers and Brian  Marx, Multivariate calibration with temperature
 interaction using two-dimensional penalized signal regression,
@@ -222,9 +222,11 @@ data <- list("y1" = data.frame("subj"= subj1, "argvals" = t1, "y" = y1),
              "y3" = data.frame("subj"= subj3, "argvals" = t3, "y" = y3)) 
 fit <- mface.sparse(data, argvals.new = tnew, knots = 5)
 
+\donttest{
 ## set calculate.scores to TRUE if want to get scores
 fit <- mface.sparse(data, argvals.new = tnew, knots = 5, calculate.scores = TRUE)
 scores <- fit$rand_eff$scores
+}
 
 ## prediction of several subjects
 for(i in 1:2){
