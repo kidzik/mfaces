@@ -1,7 +1,7 @@
 predict.face.sparse.inner <- function(object,newdata,calculate.scores=T,...){
   
   ## check inputs
-  if(class(object)!="face.sparse") stop("'fit' has to be a face.sparse object")
+  if(!inherits(object, "face.sparse")) stop("'fit' has to be a face.sparse object")
   check.data(newdata,type="predict") 
 
   subj.pred = newdata$subj

@@ -2,7 +2,7 @@ predict.mface.sparse <- function(object,newdata,
                                  calculate.scores=T, ...){
   
   ## check inputs
-  if(class(object)!="mface.sparse") stop("'fit' has to be a mface.sparse object")
+  if(!inherits(object, "mface.sparse")) stop("'fit' has to be a mface.sparse object")
   p <- length(newdata)
   Bnew <- vector("list", p)
   var.error.pred <- vector("list", p)
