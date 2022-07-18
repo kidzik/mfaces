@@ -38,7 +38,7 @@ it requires at least one observed data. For the time points prediction is desire
 \item{object}{A "mface.sparse" fit}
 \item{newdata}{Input data}
 \item{y.pred,mu.pred,se.pred,Chat.diag.pred,var.error.pred}{Predicted/estimated objects at the observation time points in \code{newdata}}
-\item{scores}{if \code{calculate.scores} in \code{object} is TRUE (typically FALSE), then predicted scores will be calculated.}
+\item{rand_eff}{if \code{calculate.scores} in \code{object} is TRUE (typically TRUE), then predicted scores \code{rand_eff$scores} will be calculated.}
 \item{\dots}{\dots}
 }
 
