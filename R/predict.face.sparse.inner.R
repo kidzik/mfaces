@@ -103,7 +103,7 @@ predict.face.sparse.inner <- function(object,newdata,calculate.scores=T,...){
   
   return(list(object=object,newdata=newdata,y.pred = y.pred,
               mu.pred=mu.pred,var.error.pred=var.error.pred,
-              scores = scores, cov.pred = cov.pred, se.pred = sqrt(diag(cov.pred)),
+              rand_eff = scores, cov.pred = cov.pred, se.pred = sqrt(diag(cov.pred)),
               Chat.pred = Chat.pred,Chat.diag.pred = diag(Chat.pred), 
               Bi = Bi, Bi_pred = Bi_pred, B = B, 
               Pi = Pi, Pi_pred = Pi_pred, P = P))  

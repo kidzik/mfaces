@@ -209,7 +209,9 @@ face.sparse.inner <- function(data, newdata = NULL, W = NULL,
   #########################
   ####step 6: prediction
   #########################
-
+  if(is.null(newdata) && calculate.scores==T){
+    newdata = data
+  }
   
   if(!is.null(newdata)){
   
@@ -303,7 +305,7 @@ face.sparse.inner <- function(data, newdata = NULL, W = NULL,
               mu.new = mu.new, Chat.new=Chat.new, var.error.new = var.error.new,
               Cor.new = Cor.new, eigenfunctions = eigenfunctions, eigenvalues = eigenvalues,
               Cor.raw.new = Cor.raw.new, Chat.raw.diag.new = Chat.raw.diag.new,
-              scores = scores, calculate.scores=calculate.scores,
+              rand_eff = scores, calculate.scores=calculate.scores,
               mu.hat = fit_mean$fitted.values,var.error.hat = var.error.hat,
               mu.pred = mu.pred, var.error.pred = var.error.pred, Chat.diag.pred = Chat.diag.pred,
               se.pred = se.pred,

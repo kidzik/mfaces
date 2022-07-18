@@ -31,7 +31,7 @@ predict.mface.sparse <- function(object,newdata,
     var.error.pred[[k]] <- pred$var.error.pred
     mu.pred[[k]] <- pred$mu.pred
     uy.pred[[k]] <- pred$y.pred
-    uscores.pred[[k]] <- pred$scores$scores
+    uscores.pred[[k]] <- pred$rand_eff$scores
     ucov.pred[[k]] <- pred$cov.pred
   }
 
@@ -151,7 +151,7 @@ predict.mface.sparse <- function(object,newdata,
   
   return(list(object=object,newdata=newdata,B=B,
               y.pred = y.pred,mu.pred=mu.pred,var.error.pred=var.error.pred,
-              scores = scores, cov.pred = cov.pred,
+              rand_eff = scores, cov.pred = cov.pred,
               se.pred = se.pred, uscores.pred = uscores.pred,
               Chat.diag.pred = diag(Chat.pred),
               ucov.pred = ucov.pred, uy.pred = uy.pred))  
