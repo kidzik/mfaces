@@ -126,12 +126,12 @@ predict.mface.sparse <- function(object,newdata,
       for(j in 1:p){
         y.pred[[j]][sel.pred[[j]]] <- temp0[ind_temp[[j]]]
         if(sum(len_sel.pred.obs) >1){
-          cov.pred[idx,idx] = Vi.pred - temp%*%Vi.inv%*%t(temp)
+#          cov.pred[idx,idx] = Vi.pred - temp%*%Vi.inv%*%t(temp)
           se.pred[[j]][sel.pred[[j]]] = sqrt(diag(Vi.pred - temp%*%Vi.inv%*%t(temp)))[ind_temp[[j]]]
         }
         
         if(sum(len_sel.pred.obs) ==1){
-          cov.pred[idx,idx] = Vi.pred[1,1] - Vi.inv[1,1]*temp%*%t(temp)
+#          cov.pred[idx,idx] = Vi.pred[1,1] - Vi.inv[1,1]*temp%*%t(temp)
           se.pred[[j]][sel.pred[[j]]] = sqrt(Vi.pred[1,1] - Vi.inv[1,1]*temp%*%t(temp))
         }
       }
